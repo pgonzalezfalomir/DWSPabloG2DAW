@@ -42,7 +42,7 @@ public class App {
         String ejercicio8 = BookCollection.nombreAutoresConMasDe1Libro((ArrayList<Book>) libros); // sin terminar
         System.out.println("Nombre autores con más de 1 libro: " + ejercicio8);
 
-        String ejercicio9 = BookCollection.libroConMasPaginas((ArrayList<Book>) libros); // sin terminar
+        String ejercicio9 = BookCollection.libroConMasPaginas((ArrayList<Book>) libros); // sin terminr
         System.out.println("Libro con más páginas: " + ejercicio9);
     }
 }
