@@ -25,24 +25,43 @@ public class App {
         libros.add(new Book("9788466359290", "Línea de fuego", "Arturo Pérez Reverte", 688));
 
         int ejercicio1 = BookCollection.obtenerMas500Paginas((ArrayList<Book>) libros);
-        System.out.println("Cantidad de libros con más de 500 páginas: " + ejercicio1);
+        System.out.println("EJERCICIO 1:");
+        System.out.println("Cantidad de libros con más de 500 páginas: " + ejercicio1 + '\n');
 
+        System.out.println("EJERCICIO 2:");
         int ejercicio2 = BookCollection.obtenerMenos300Paginas((ArrayList<Book>) libros);
-        System.out.println("Cantidad de libros con menos de 300 páginas: " + ejercicio2);
+        System.out.println("Cantidad de libros con menos de 300 páginas: " + ejercicio2 + '\n');
 
+        System.out.println("EJERCICIO 3:");
         String ejercicio3= BookCollection.listarTituloConMas500Paginas((ArrayList<Book>) libros);
-        System.out.println("Título de libros con más de 500 páginas: " +  ejercicio3);
+        System.out.println("Título de libros con más de 500 páginas: " +  ejercicio3 + '\n');
 
+        System.out.println("EJERCICIO 4:");
+        String ejercicio4 = BookCollection.obtenerTitulo3ConMasPaginas((ArrayList<Book>) libros);
+        System.out.println("Título de los 3 libros con más páginas: " + ejercicio4 + '\n');
+
+        System.out.println("EJERCICIO 5:");
         int ejercicio5 = BookCollection.sumaTotalPaginas((ArrayList<Book>) libros);
-        System.out.println("Cantidad total de páginas: " + ejercicio5);
+        System.out.println("Cantidad total de páginas: " + ejercicio5 + '\n');
 
+        System.out.println("EJERCICIO 6:");
         String ejercicio6 = BookCollection.titulosLibrosSuperanPromedioPaginas((ArrayList<Book>) libros);
-        System.out.println("Título de los libros que superan el promedio de páginas: " + ejercicio6);
+        System.out.println("Título de los libros que superan el promedio de páginas: " + ejercicio6 + '\n');
 
-        String ejercicio8 = BookCollection.nombreAutoresConMasDe1Libro((ArrayList<Book>) libros); // sin terminar
-        System.out.println("Nombre autores con más de 1 libro: " + ejercicio8);
+        System.out.println("EJERCICIO 7:");
+        String ejercicio7 = BookCollection.obtenerAutoresSinRepetir((ArrayList<Book>) libros);
+        System.out.println("Autores sin repetir: " + ejercicio7 + '\n');
 
-        String ejercicio9 = BookCollection.libroConMasPaginas((ArrayList<Book>) libros); // sin terminr
-        System.out.println("Libro con más páginas: " + ejercicio9);
+        System.out.println("EJERCICIO 8:");
+        String ejercicio8 = BookCollection.nombreAutoresConMasDe1Libro((ArrayList<Book>) libros);
+        System.out.println("Nombre autores con más de 1 libro: " + ejercicio8 + '\n');
+
+        System.out.println("EJERCICIO 9:");
+        String ejercicio9 = BookCollection.libroConMasPaginas((ArrayList<Book>) libros);
+        System.out.println("Libro con más páginas: " + ejercicio9 + '\n');
+
+        System.out.println("EJERCICIO 10:");
+        ArrayList<String> ejercicio10 = BookCollection.obtenerTodosLosTitulos((ArrayList<Book>) libros);
+        System.out.println("Colección con todos los títulos: " + ejercicio10 + '\n');
     }
 }
