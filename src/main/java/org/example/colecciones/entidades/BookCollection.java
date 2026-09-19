@@ -1,6 +1,11 @@
 package org.example.colecciones.entidades;
+import org.example.colecciones.App;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BookCollection {
     // 1. Obtener la cantidad de libros con más de 500 páginas.
@@ -132,5 +137,95 @@ public class BookCollection {
             titulos.add(libros.get(i).title());
         }
         return titulos;
+    }
+
+    // PO3 - Funcional
+    // 1. Obtener la cantidad de libros con más de 500 páginas.
+    public static int obtenerMas500PaginasFuncional (ArrayList<Book> libros) {
+        return (int) libros.stream()
+                .filter(libro -> libro.pages() > 500)
+                .count();
+    }
+
+    // 2. Obtener la cantidad de libros con menos de 300 páginas.
+    public static int obtenerMenos300PaginasFuncional (ArrayList<Book> libros) {
+        return (int) libros.stream()
+                .filter(libro -> libro.pages() < 300)
+                .count();
+    }
+
+    // 3. Listar el título de todos aquellos libros con más de 500 páginas.
+    public static String listarTituloConMas500PaginasFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .filter(libro -> libro.pages() > 500)
+                .map(Book::title)
+                .toList()
+                .toString();
+    }
+
+    // 4. Obtener el título de los 3 libros con mayor número de páginas.
+    public static String obtenerTitulo3ConMasPaginasFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .sorted(Comparator.comparingInt(Book::pages).reversed())
+                .limit(3)
+                .map(Book::title)
+                .toList()
+                .toString();
+    }
+
+    // 5. Obtener la suma total de las páginas de todos los libros.
+    public static int sumaTotalPaginasFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .mapToInt(Book::pages)
+                .sum();
+    }
+
+    // 6. Obtener todos aquellos libros que superen el promedio en cuanto a número de páginas se refiere.
+    public static String titulosLibrosSuperanPromedioPaginasFuncional (ArrayList<Book> libros) {
+        double promedio = libros.stream()
+                .mapToInt(Book::pages)
+                .average()
+                .orElse(0.0);
+
+        return libros.stream()
+                .filter(libro -> libro.pages() > promedio)
+                .map(Book::title)
+                .toList()
+                .toString();
+    }
+
+    // 7. Obtener los autores de todos los libros, sin repetir nombres de autores.
+    public static String obtenerAutoresSinRepetirFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .map(Book::author)
+                .distinct()
+                .toList()
+                .toString();
+    }
+
+    // 8. Obtener los autores que tengan más de 1 libro listado.
+    public static String nombreAutoresConMasDe1LibroFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .collect(Collectors.groupingBy(Book::author, Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList()
+                .toString();
+    }
+
+    // 9. Obtener el libro con mayor número de páginas.
+    public static String libroConMasPaginasFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .max(Comparator.comparingInt(Book::pages))
+                .map(Book::title)
+                .orElse("");
+    }
+
+    // 10. Obtener una colección con todos los títulos de los libros.
+    public static ArrayList<String> obtenerTodosLosTitulosFuncional (ArrayList<Book> libros) {
+        return libros.stream()
+                .map(Book::title)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }

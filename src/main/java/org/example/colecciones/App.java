@@ -24,8 +24,10 @@ public class App {
         libros.add(new Book("9788466367349", "El italiano", "Arturo Pérez Reverte", 400));
         libros.add(new Book("9788466359290", "Línea de fuego", "Arturo Pérez Reverte", 688));
 
-        int ejercicio1 = BookCollection.obtenerMas500Paginas((ArrayList<Book>) libros);
+        // PO1 - Colecciones
+        System.out.println("PO1 - Colecciones:");
         System.out.println("EJERCICIO 1:");
+        int ejercicio1 = BookCollection.obtenerMas500Paginas((ArrayList<Book>) libros);
         System.out.println("Cantidad de libros con más de 500 páginas: " + ejercicio1 + '\n');
 
         System.out.println("EJERCICIO 2:");
@@ -63,5 +65,57 @@ public class App {
         System.out.println("EJERCICIO 10:");
         ArrayList<String> ejercicio10 = BookCollection.obtenerTodosLosTitulos((ArrayList<Book>) libros);
         System.out.println("Colección con todos los títulos: " + ejercicio10 + '\n');
+
+        // PO2 - Relaciones
+        System.out.println("PO2 - Relaciones:");
+        System.out.println("Libros ordenados alfabéticamente:");
+        libros.sort(null);
+        for (int i = 0; i < libros.size(); i++) {
+            System.out.println(libros.get(i).title());
+        }
+        System.out.println('\n');
+
+        // PO3 - Funcional
+        System.out.println("PO3 - Funcional:");
+        System.out.println("EJERCICIO 1:");
+        int ejercicio1Funcional = BookCollection.obtenerMas500PaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Cantidad de libros con más de 500 páginas: " + ejercicio1Funcional + '\n');
+
+        System.out.println("EJERCICIO 2:");
+        int ejercicio2Funcional = BookCollection.obtenerMenos300PaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Cantidad de libros con menos de 300 páginas: " + ejercicio2Funcional + '\n');
+
+        System.out.println("EJERCICIO 3:");
+        String ejercicio3Funcional= BookCollection.listarTituloConMas500PaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Título de libros con más de 500 páginas: " +  ejercicio3Funcional + '\n');
+
+        System.out.println("EJERCICIO 4:");
+        String ejercicio4Funcional = BookCollection.obtenerTitulo3ConMasPaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Título de los 3 libros con más páginas: " + ejercicio4Funcional + '\n');
+
+        System.out.println("EJERCICIO 5:");
+        int ejercicio5Funcional = BookCollection.sumaTotalPaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Cantidad total de páginas: " + ejercicio5Funcional + '\n');
+
+        System.out.println("EJERCICIO 6:");
+        String ejercicio6Funcional = BookCollection.titulosLibrosSuperanPromedioPaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Título de los libros que superan el promedio de páginas: " + ejercicio6Funcional + '\n');
+
+        System.out.println("EJERCICIO 7:");
+        String ejercicio7Funcional = BookCollection.obtenerAutoresSinRepetirFuncional((ArrayList<Book>) libros);
+        System.out.println("Autores sin repetir: " + ejercicio7Funcional + '\n');
+
+        System.out.println("EJERCICIO 8:");
+        String ejercicio8Funcional = BookCollection.nombreAutoresConMasDe1LibroFuncional((ArrayList<Book>) libros);
+        System.out.println("Nombre autores con más de 1 libro: " + ejercicio8Funcional + '\n');
+
+        System.out.println("EJERCICIO 9:");
+        String ejercicio9Funcional = BookCollection.libroConMasPaginasFuncional((ArrayList<Book>) libros);
+        System.out.println("Libro con más páginas: " + ejercicio9Funcional + '\n');
+
+        System.out.println("EJERCICIO 10:");
+        ArrayList<String> ejercicio10Funcional = BookCollection.obtenerTodosLosTitulosFuncional((ArrayList<Book>) libros);
+        System.out.println("Colección con todos los títulos: " + ejercicio10Funcional);
+
     }
 }
